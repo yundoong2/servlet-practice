@@ -33,11 +33,14 @@ public class FrontControllerServletV4 extends HttpServlet {
         }
 
         Map<String, String> paramMap = createParamMap(request);
+        //V3에서 없던 부분으로, model을 초기화하여 컨트롤러에 넘겨준다.
         Map<String, Object> model = new HashMap<>(); //추가됨
 
+        //컨트롤러에서는 model에 객체를 담고 논리적 뷰이름을 반환한다.
         String viewName = controller.process(paramMap, model);
 
         MyView view = viewResolver(viewName);
+        //View.render()에 model 객체를 넘겨준다.
         view.render(model, request, response);
     }
 

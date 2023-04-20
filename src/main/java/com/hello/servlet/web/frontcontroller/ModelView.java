@@ -6,6 +6,9 @@ import lombok.Setter;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ *  Model 과 논리 뷰 이름을 담는 용도의 객체(클래스)
+ */
 @Getter
 @Setter
 public class ModelView {

@@ -11,14 +11,30 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * V4를 지원하는 어댑터
+ */
 public class ControllerV4HandlerAdapter implements MyHandlerAdapter {
 
-    //handler가 ControllerV4 인지 판별
+    /**
+     * 핸들러(컨트롤러)가 V4 버전인지 판별
+     * @param handler {@link Object}
+     * @return boolean {@link Boolean}
+     */
     @Override
     public boolean supports(Object handler) {
         return (handler instanceof ControllerV4);
     }
 
+    /**
+     * 파라미터로 받은 핸들러(컨트롤러)를 V4로 캐스팅한 후 컨트롤러를 호출한 뒤, ModelView 객체를 반환한다.
+     * @param request {@link HttpServletRequest}
+     * @param response {@link HttpServletResponse}
+     * @param handler {@link Object}
+     * @return ModelView {@link ModelView}
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     public ModelView handle(HttpServletRequest request, HttpServletResponse response, Object handler) throws ServletException, IOException {
 

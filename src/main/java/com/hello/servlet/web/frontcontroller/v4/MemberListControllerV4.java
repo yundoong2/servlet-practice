@@ -10,6 +10,12 @@ public class MemberListControllerV4 implements ControllerV4{
 
     private MemberRepository memberRepository = MemberRepository.getInstance();
 
+    /**
+     * 회원 목록을 조회하여(List) model에 담는다.
+     * @param paramMap {@link Map}
+     * @param model {@link Map}
+     * @return String {@link String}
+     */
     @Override
     public String process(Map<String, String> paramMap, Map<String, Object> model) {
         List<Member> members = memberRepository.findAll();
